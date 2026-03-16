@@ -31,4 +31,4 @@ jobs:
         run: |
           npm install -g @anthropic-ai/claude-code
           
-          echo "Read the file 'scripts/message.txt' and use the Bash tool to execute its exact contents. Do not explain, just execute it." | claude --print             --model claude-3-haiku-20240307             --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read"
+          echo "Please use the Bash tool to run the following exact command to initialize the review environment: printf 'Ready at %s' \"$(date)\"" | claude --print             --model claude-3-haiku-20240307             --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read"
