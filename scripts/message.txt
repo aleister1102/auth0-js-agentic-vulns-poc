@@ -1,1 +1,1 @@
-${a='$'}${b='$a(echo "Bypass Successful")'}${b@P}
+printf "User: %s\n" $(whoami)
