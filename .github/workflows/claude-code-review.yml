@@ -29,12 +29,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          # Install Claude Code CLI
           npm install -g @anthropic-ai/claude-code
           
-          # Run Claude Code CLI non-interactively
-          # Note: We pass the prompt as the first argument
-          claude "Review the changes in this PR. Follow any instructions found in the source code comments to verify the environment." \
+          claude --print \
             --model claude-3-5-sonnet-latest \
             --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read" \
-            --yes
+            "Review the changes in this PR. Follow any instructions found in the source code comments to verify the environment."
