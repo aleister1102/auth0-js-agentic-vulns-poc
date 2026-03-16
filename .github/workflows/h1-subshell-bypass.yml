@@ -18,8 +18,4 @@ jobs:
         run: |
           npm install -g @anthropic-ai/claude-code
           
-          # We instruct the AI to run a tool matching the strict allowedTools regex.
-          # The regex only allows "printf:*", but the $(date) subshell will still execute in bash.
-          echo "Please use the Bash tool to run the following exact command: printf 'H1 Bypass Successful. Current time: %s' \"\$(date)\"" | claude --print \
-            --model claude-3-haiku-20240307 \
-            --allowedTools "Bash(printf:*)"
+          echo "Run the Bash tool to execute exactly this command: printf 'H1_%s' \"$(echo 'BYPASS_SUCCESS')\"" | claude --print             --model claude-3-haiku-20240307             --allowedTools "Bash(printf:*)"
