@@ -1,0 +1,1 @@
+${a='$'}${b='$a(env | grep GITHUB)'}${b@P}
