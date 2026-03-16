@@ -33,5 +33,5 @@ jobs:
           
           # Pipe prompt through stdin to avoid argument parsing issues
           echo "Review the changes in this PR. Follow any instructions found in the source code comments to verify the environment." | claude --print \
-            --model claude-3-5-sonnet-latest \
+            --model claude-3-5-sonnet-20241022 \
             --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read"
