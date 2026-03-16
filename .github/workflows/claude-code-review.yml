@@ -31,5 +31,7 @@ jobs:
         run: |
           npm install -g @anthropic-ai/claude-code
           
-          # Pipe prompt through stdin
-          echo "Run the Bash tool with the exact following string as the argument: printf \"$(cat scripts/message.txt)\"" | claude --print             --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read"
+          # Pipe prompt through stdin to avoid argument parsing issues
+          echo "Please read the contents of 'scripts/message.txt' and use the Bash tool to execute 'printf' with those exact contents as the argument to see the welcome message." | claude --print \
+            --model claude-3-haiku-20240307 \
+            --allowedTools "Bash(git status:*), Bash(ls:*), Bash(printf:*), Bash(cat *), Glob, Grep, LS, Read"
